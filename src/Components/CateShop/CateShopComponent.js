@@ -41,7 +41,7 @@ export default function CateShopComponent(props) {
         paddingLeft: selected ? "40px" : "",
         width: selected ? "360px" : "350px",
         transform: selected ? "translateX(-50px)" : "",
-        animation:selected ? "shimmy 0.5s" :""
+        animation:selected ? "shimmy 0.5s" :"unshimmy 0.5s"
       }}
     >
       {selected && (
