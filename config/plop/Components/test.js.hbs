@@ -1,0 +1,29 @@
+import React from "react";
+import { shallow } from "enzyme";
+
+{{#if item}}
+import {{ item }} from "./{{item}}Component.js";
+{{else}}
+import {{ name }} from "./{{name}}Component.js";
+{{/if}}
+
+// My way in testing with Jest &Enzyme
+
+{{#if item}}
+describe('{{item}}', ()=> {
+const wrapper = shallow(
+<{{item}} />)
+{{else}}
+describe('{{name}}', ()=> {
+const wrapper = shallow(
+<{{name}} />)
+{{/if}}
+
+it('Should match its snapshot', () => {
+expect(wrapper).toMatchSnapshot();
+})
+
+// more test
+
+
+})

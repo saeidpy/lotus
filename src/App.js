@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import BackgroundLinerDivComponent from "./Components/BackgroundLinerDiv/BackgroundLinerDivComponent";
+import CardShopComponent from "./Components/CardShop/CardShopComponent";
+import GridContentComponent from "./Components/GridContent/GridContentComponent";
+import HeaderComponent from "./Components/Header/HeaderComponent";
+import { withIsWeb } from "./withIsWeb";
 
-function App() {
-  return (
+function App({ isWeb }) {
+  return isWeb ? (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BackgroundLinerDivComponent />
+      <HeaderComponent />
+      <GridContentComponent />
     </div>
+  ) : (
+    <img
+      alt=""
+      style={{ width: "100vw", height: "100vh" }}
+      src="/assets/images/coming soon.png"
+    />
   );
 }
 
-export default App;
+export default withIsWeb(App);

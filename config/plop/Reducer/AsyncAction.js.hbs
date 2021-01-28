@@ -1,0 +1,16 @@
+import { createAction } from "redux-api-middleware";
+export const {{type}}_REQUEST = '@@{{name}}/{{type}}_REQUEST';
+export const {{type}}_SUCCESS = '@@{{name}}/{{type}}_SUCCESS';
+export const {{type}}_FAILURE = '@@{{name}}/{{type}}_FAILURE';
+
+
+export const {{nameFunc}} = ( body ) => createAction ( {
+    endpoint: "/todos",
+    method: 'GET',
+    body,
+    types: [
+        {{type}}_REQUEST,
+        {{type}}_SUCCESS,
+        {{type}}_FAILURE
+    ]
+} );

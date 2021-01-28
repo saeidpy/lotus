@@ -1,0 +1,43 @@
+import React from "react";
+{{#if item}}
+import {useStyle} from "./{{item}}.style.js";
+{{else}}
+import {useStyle} from "./{{name}}.style.js";
+{{/if}}
+import PropTypes from "prop-types";
+
+/**
+  * write document
+  */
+
+export default function {{#if item}}{{item}}{{else}}{{name}}{{/if}}Component(props) {
+const classes = useStyle()
+const {state, setState}=props
+return (
+<div>
+
+</div>
+)
+}
+
+{{#if item}}{{item}}{{else}}{{name}}{{/if}}Component.propTypes = {
+  /**
+  * write document
+  */
+  state: PropTypes.string,
+  /**
+  * write document
+  */
+  setState: PropTypes.func,
+  /**
+  * write document
+  */
+  props:PropTypes.object
+};
+
+{{#if item}}{{item}}{{else}}{{name}}{{/if}}Component.defaultProps = {
+  /**
+  * write document
+  */
+  state: "hello world",
+};

@@ -1,0 +1,35 @@
+import configureMockStore from 'redux-mock-store'
+import fetchMock from 'fetch-mock'
+import { apiMiddleware } from 'redux-api-middleware';
+import * as actions from './{{name}}Action'
+import expect from 'expect' // You can use any testing library
+import * as {{name}}Reducer from "../../Reducers/{{name}}Reducer/{{name}}Reducer"
+
+const mockStore = configureMockStore([apiMiddleware])
+const store = mockStore({{name}}Reducer.initialState)
+
+describe('async actions', () => {
+  afterEach(() => {
+    fetchMock.reset()
+    fetchMock.restore()
+  })
+
+  it('creates {{type}}_SUCCESS when fetching todos has been done', () => {
+    const response = {text:"Run the test"}
+
+    fetchMock.getOnce('/todos', {
+       body: { result: response },
+      headers: { 'content-type': 'application/json' }
+    })
+
+    const expectedActions = [
+      { type: actions.{{type}}_REQUEST },
+      { type: actions.{{type}}_SUCCESS ,payload: {result: response }  }
+    ]
+
+    return store.dispatch(actions.{{nameFunc}}()).then(() => {
+      // return of async actions
+      expect(store.getActions()).toEqual(expectedActions)
+    })
+  })
+})

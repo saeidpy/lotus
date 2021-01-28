@@ -1,0 +1,74 @@
+import reducer from './{{name}}Reducer'
+import { {{name}}Action } from '../../Actions'
+
+describe('todos reducer', () => {
+  it('should return the initial state', () => {
+    expect(reducer(undefined, {})).toEqual(
+      {
+        test: "",
+        loading:false,
+        error:null,
+        fieldError:{}
+      }
+    )
+  })
+
+  it('should handle {{type}}', () => {
+    expect(
+      reducer([], {
+        type: {{name}}Action.{{type}}_REQUEST,
+      })
+    ).toEqual(
+      {
+        loading:true,
+        error:null,
+      }
+    )
+
+    expect(
+      reducer(
+          {
+            test: 'Use Redux',
+            loading:true,
+            error:null,
+            fieldError:{}
+          }
+        ,
+        {
+          type: {{name}}Action.{{type}}_SUCCESS,
+          payload: 'Run the tests'
+        }
+      )
+    ).toEqual(
+      {
+        test: 'Run the tests',
+        loading:false,
+        error:null,
+        fieldError:{}
+      },
+    )
+
+    expect(
+      reducer(
+          {
+            test: 'Run the tests',
+            loading:false,
+            error:null,
+            fieldError:{}
+          }
+        ,
+        {
+          type: {{name}}Action.{{type}}_FAILURE,
+          payload: 'Run the tests'
+        }
+      )
+    ).toEqual(
+      {
+        test: 'Run the tests',
+        loading:false,
+        error:true,
+        fieldError:{}
+      },
+    )
+  })
+})

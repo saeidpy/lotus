@@ -1,0 +1,42 @@
+import reducer from './{{name}}Reducer'
+import { {{name}}Action } from '../../Actions'
+
+describe('todos reducer', () => {
+  it('should return the initial state', () => {
+    expect(reducer(undefined, {})).toEqual(
+      {
+        test: ""
+      }
+    )
+  })
+
+  it('should handle {{type}}', () => {
+    expect(
+      reducer([], {
+        type: {{name}}Action.{{type}},
+        payload: 'Run the tests'
+      })
+    ).toEqual(
+      {
+        test: 'Run the tests',
+      }
+    )
+
+    expect(
+      reducer(
+          {
+            test: 'Use Redux',
+          }
+        ,
+        {
+          type: {{name}}Action.{{type}},
+          payload: 'Run the tests'
+        }
+      )
+    ).toEqual(
+      {
+        test: 'Run the tests',
+      } 
+    )
+  })
+})

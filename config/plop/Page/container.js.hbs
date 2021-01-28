@@ -1,0 +1,21 @@
+import React from "react";
+import {{name}}Component from "./components/{{name}}Component.js";
+import PropTypes from "prop-types";
+
+export default function {{ name }}Container(props) {
+const {state, setState}=props
+return (
+<{{name}}Component />
+)
+}
+
+
+{{ name }}Container.propTypes = {
+  state: PropTypes.string,
+  setState: PropTypes.func,
+  props:PropTypes.object
+};
+
+{{ name }}Container.defaultProps = {
+  state: "hello world",
+};

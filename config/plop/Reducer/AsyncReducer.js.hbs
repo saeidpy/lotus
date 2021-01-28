@@ -1,0 +1,36 @@
+import { {{name}}Action } from '../../Actions'
+
+const initialState ={
+    test: "",
+    loading:false,
+    error:null,
+    fieldError:{}
+  }
+
+export default function (state = initialState, action) {
+  switch (action.type) {
+    case {{name}}Action.{{type}}_REQUEST:
+      return {
+        ...state,
+        loading:true,
+        error:null
+        }
+    case {{name}}Action.{{type}}_SUCCESS:
+    const {payload} = action
+      return {
+        ...state,
+        test:payload,
+        loading:false,
+        error:null
+        }
+    case {{name}}Action.{{type}}_FAILURE:
+      return {
+        ...state,
+        loading:false,
+        error:true
+        }
+
+    default:
+      return state
+  }
+}

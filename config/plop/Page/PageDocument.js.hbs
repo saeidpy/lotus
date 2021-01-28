@@ -1,0 +1,17 @@
+import React from 'react';
+
+import {{name}}Component from "./{{name}}Component";
+
+
+export default {
+  title: 'Pages/{{name}}',
+  component: {{name}}Component,
+};
+
+const Template = (args) => <{{name}}Component {...args} />;
+
+// SAMPLE FOR POROPS COMPONENT
+export const TEST = Template.bind({});
+TEST.args = {
+  text: "hello"
+};
